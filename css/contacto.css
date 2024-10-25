@@ -1,0 +1,337 @@
+@import url("https://fonts.googleapis.com/css2?family=Abel&family=Barlow+Condensed:ital,wght@0,200;1,100;1,200&family=Lobster&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lobster", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+*::selection {
+  color: #0c4f5fb4;
+}
+
+
+header {
+  background-color: #0c4f5fb4;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  padding: 8px;
+  max-height: 120px;
+  align-items: center;
+  max-width: 100%;
+}
+
+.logo {
+  width: 100px;
+  margin: 10px 0 8px 10px;
+  animation: bounce-in-top 1.8s both;
+  animation-delay: 1.6s;
+}
+
+.navbar {
+  display: flex;
+  margin-right: 10px;
+  height: 60px;
+  margin-top: 10px;
+}
+
+.navbar a {
+  display: block;
+  color: beige;
+  font-size: 100%;
+  text-decoration: none;
+  padding: 10px 15px;
+  border: 3px solid beige;
+  margin: 5px;
+  transition: all 0.3s;
+  animation: puff-in-center 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+}
+
+.navbar a:hover {
+  background-color: #0c4f5fb4;
+}
+
+main {
+  background-image: url("../IMG/fm-removebg-preview.png");
+  background-repeat: no-repeat;
+  background-size: 45%;
+  background-position: right;
+  min-height: 100vh;
+  min-width: 400px;
+  max-width: 1500px;
+  overflow-x: hidden;
+  animation: kenburns-top 0.5s linear reverse both;
+
+}
+
+main h1 {
+  color: #040404d8;
+  text-align: left;
+  font-size: 40px;
+  margin: 10px 0 20px 40px;
+  padding-left: 20px;
+}
+
+.formulario {
+  display: flex;
+  max-width: 20vw;
+  height: 100%;
+  margin: 10vh 0 0 15vw;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.contenedor__boton {
+  opacity: 1;
+  width: 100%;
+  height: 100%;
+  z-index: 1200;
+  display: flex;
+  justify-content: center;
+}
+
+.boton__formulario {
+  margin-top: 20px;
+  width: 20vw;
+  height: 15vh;
+  background-color: #0c4f5fb4;
+  align-items: flex-end;
+  font-size: 20px;
+  font-family: "Courier New", Courier, monospace;
+  border: 3px solid rgb(23, 59, 80);
+  color: beige;
+  font-weight: 300;
+  cursor: pointer;
+  z-index: 1400;
+  margin-left: 70px;
+}
+
+.form-control {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 40vw;
+  height: 60vh;
+  font-size: 14px;
+  padding: 10px;
+  margin-bottom: 20px;
+  text-indent: 60px;
+  border: 3px solid black;
+}
+
+.form-control input {
+  width: 100%;
+  text-align: left;
+}
+
+.textarea {
+  width: 100%;
+  height: 100px;
+  font-size: 20px;
+  padding: 10px;
+  margin-bottom: 15px;
+  resize: none;
+}
+
+.whatsapp-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: green;
+  color: beige;
+  border-radius: 5px;
+  text-decoration: none;
+  z-index: 9999;
+  background-image: url("../IMG/whatsapp-png-wazapp-logo-whats-whatsapp-logo-whatsapp-icon-2050-removebg-preview.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.whatsapp-button a {
+  display: block;
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+}
+
+.whatsapp-button img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.whatsapp-button:hover {
+  background-color: darkgreen;
+}
+
+footer {
+  background-color: #0c4f5fb4;
+  color: rgb(11, 11, 11);
+  text-align: center;
+  margin: 0;
+  padding: 10px;
+  height: 30vh;
+}
+
+h2 {
+  font-size: 17px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+h4 {
+  font-size: 20px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  color: rgb(12, 12, 12);
+  border: none;
+  border-radius: 10px;
+  font-size: 22px;
+  text-decoration: none;
+  margin: 8px 5px;
+  padding: 8px 10px;
+  background-color: rgb(235, 235, 232);
+  padding-block-end: 0;
+}
+
+.btn:hover {
+  background-color: #0c4f5fb4;
+}
+
+.btn img {
+  margin-right: 10px;
+  width: 25px;
+  height: 25px;
+}
+
+.btn span {
+  display: inline-block;
+}
+
+.contenedor-redes-sociales {
+  margin: 10px 0;
+}
+
+.icono-red-social {
+  width: 30px;
+  height: 30px;
+}
+
+.icono-red-social:hover {
+  background-color: beige;
+}
+
+/* Animaciones */
+.puff-in-center {
+  animation: puff-in-center 0.9s ease-in-out 0.3s reverse backwards;
+}
+
+@keyframes puff-in-center {
+  0% {
+    transform: scale(2);
+    filter: blur(4px);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    filter: blur(0);
+    opacity: 1;
+  }
+}
+
+.bounce-in-top {
+  animation: bounce-in-top 1.8s both;
+}
+
+@keyframes bounce-in-top {
+  0% {
+    transform: translateY(-500px);
+    opacity: 0;
+  }
+  38% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  55% {
+    transform: translateY(-65px);
+  }
+  72% {
+    transform: translateY(0);
+  }
+  81% {
+    transform: translateY(-28px);
+  }
+  90% {
+    transform: translateY(0);
+  }
+  95% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes kenburns-top {
+  0% {
+    transform: scale(1) translateY(0);
+    transform-origin: 50% 16%;
+  }
+  100% {
+    transform: scale(1.25) translateY(-15px);
+    transform-origin: top;
+  }
+}
+
+/* Media Queries */
+@media only screen and (max-width: 640px) {
+  header .navbar {
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  }
+
+  header .navbar a {
+    font-size: 90%;
+    padding: 3px;
+    margin: 3px;
+    border: 2px solid beige;
+  }
+
+  header .logo {
+    height: 90px;
+    width: 90px;
+  }
+
+  main{
+    background-size: 60%;
+    background-position: 40%;
+    background-position: bottom ;
+    
+  }
+
+  .boton__formulario {
+    width: 50vw;
+    height: 10vh;
+    padding: 10px;
+    justify-content: center;
+  }
+
+  .icono-red-social {
+    width: 30px;
+    height: 30px;
+  }
+}

@@ -1,0 +1,362 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
+// Variables
+$primary-color: rgba(12, 79, 95, 0.705);
+$secondary-color: rgba(255, 255, 255, 0.8);
+$text-color: #000000;
+$background-color: beige;
+$font-size: 1rem;
+$image-height: 400px; // Altura fija para las imágenes
+
+// Mixin para transición
+@mixin transition($property) {
+  transition: $property 0.3s ease;
+}
+
+// Mixin para animaciones
+@mixin bounce-in-top {
+  animation: bounce-in-top 1.8s ;
+}
+
+@mixin puff-in-center {
+  animation: puff-in-center 0.5s cubic-bezier(0.47, 0, 0.745, 0.715) both;
+}
+
+// Animación de rebote
+@keyframes bounce-in-top {
+  0% { transform: translateY(-500px); opacity: 0; }
+  38% { transform: translateY(0); opacity: 1; }
+  55% { transform: translateY(-65px); }
+  72%, 90%, 100% { transform: translateY(0); }
+  81% { transform: translateY(-28px); }
+  95% { transform: translateY(-8px); }
+}
+
+@keyframes puff-in-center {
+  0% { transform: scale(2); filter: blur(4px); opacity: 0; }
+  100% { transform: scale(1); filter: blur(0); opacity: 1; }
+}
+
+
+// Estilos globales
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lobster", sans-serif;
+}
+
+
+*::selection {
+  color: $primary-color;
+}
+
+// Estilos para el header
+header {
+  background-color: $primary-color;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  max-height: 120px;
+
+  .logo {
+    width: 100px;
+    margin-top: 10px;
+    @include bounce-in-top;
+    animation-delay: 1.6s;
+  }
+  
+
+  .navbar {
+    display: flex;
+    
+
+    a {
+      display: block;
+      color: #fff;
+      font-size: $font-size;
+      text-decoration: none;
+      padding: 10px 15px;
+      border: 3px solid #fff;
+      margin: 5px;
+      @include transition(background-color);
+      @include puff-in-center;
+
+      &:hover {
+        background-color: $primary-color;
+        color: #fff;
+        @include transition(color);
+      }
+    }
+  }
+}
+
+// Estilos para el main
+main {
+  padding: 20px;
+
+
+  h1 {
+    color: $primary-color;
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+   
+  }
+  .logof-container {
+    display: flex;
+    justify-content: center; // Centra el logo
+    margin-top: 20px; // Espacio entre el título y el logo
+
+    .logof {
+        width: 100px; // Ajusta el tamaño del logo según sea necesario
+        height: auto; // Mantiene la proporción del logo
+        
+    }
+}
+
+
+  .contenedor {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    #galeria {
+      width: 100%;
+      max-width: 800px;
+      position: relative;
+
+      .carousel {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+        .carousel-inner {
+          height: $image-height;
+
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+
+            &:hover {
+              transform: scale(1.05);
+            }
+          }
+        }
+
+        .carousel-caption {
+          
+          & d-none d-md-block-1 {
+          background-color: rgba(0, 0, 0, 0.5);
+          border-radius: 5px;
+          text-align: center;
+          padding-bottom: 20px;
+          
+
+           h2 {
+            color: $secondary-color;
+            font-size: 1.5rem;
+            text-align: center;
+           
+          }
+        }
+
+          & d-none d-md-block-2 {
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            text-align: center;
+            padding-bottom: 30%;
+
+            h2 {
+              color: $secondary-color;
+              font-size: 1.5rem;
+              text-align: center;
+             
+            }
+          }
+          
+           
+          & d-none d-md-block-3 {
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 5px;
+            text-align: center;
+            padding-bottom: 80px;
+         
+
+           h2 {
+            color: $secondary-color;
+            font-size: 1.5rem;
+            text-align: center;
+           }
+        
+          }
+         
+        }
+
+      }
+    }
+  }
+
+    p {
+      font-size: 1.1rem;
+      margin: 20px;
+      text-align: center;
+      color: $text-color;
+    }
+  }
+
+  .video {
+    text-align: center;
+    margin: 30px 0;
+
+    iframe {
+      width: 90%;
+      max-width: 800px;
+      height: 400px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      @include transition(all);
+
+      &:hover {
+        transform: scale(1.02);
+        @include transition(transform);
+      }
+    }
+  }
+
+
+// Estilos para el footer
+footer {
+  background-color: $primary-color;
+  color: #0b0b0b;
+  text-align: center;
+  padding: 10px;
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    color: rgb(12, 12, 12);
+    border: none;
+    border-radius: 10px;
+    font-size: 22px;
+    text-decoration: none;
+    margin: 8px 5px;
+    background-color: rgb(235, 235, 232);
+    padding: 5px 10px;
+    @include transition(background-color);
+    
+     h4{
+      font-size: 17px;
+     }
+
+    &:hover {
+      background-color: $primary-color;
+    }
+
+    img {
+      margin-right: 10px;
+      width: 25px;
+      height: 25px;
+    }
+  }
+
+  h3{
+    font-size: 20px;
+  }
+
+  h5{
+    font-size: 20px;
+  }
+
+  .contenedor-redes-sociales {
+    margin: 10px 0;
+
+    .icono-red-social {
+      width: 50px;
+      height: 50px;
+
+      &:hover {
+        background-color: $text-color;
+      }
+    }
+  }
+}
+
+// Media Queries
+@media only screen and (max-width: 768px) {
+  main {
+    padding: 10px;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .contenedor {
+      p {
+        font-size: 1rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  main {
+    h1 {
+      font-size: 1.8rem;
+    }
+
+    .contenedor {
+      p {
+        font-size: 0.9rem;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 620px) {
+  header {
+    .logo {
+      margin: 10px 0;
+      height: 90px;
+      width: 90px;
+    }
+
+    .navbar {
+      justify-content: flex-end;
+      margin-bottom: 0;
+
+      a {
+        font-size: 0.8rem;
+        padding: 5px;
+        margin: 1px;
+      }
+    }
+  }
+
+  main {
+    .contenedor {
+      flex-direction: column;
+
+      p {
+        width: 100%;
+        font-size: 1rem;
+        margin-left: 20px;
+      }
+
+      #galeria {
+        width: 100%;
+      }
+    }
+  }
+
+  footer {
+    .contenedor-redes-sociales {
+      .icono-red-social {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+}
