@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
+@keyframes bounce-in-top {
+  0% {
+    transform: translateY(-500px);
+    opacity: 0;
+  }
+  38% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  55% {
+    transform: translateY(-65px);
+  }
+  72%, 90%, 100% {
+    transform: translateY(0);
+  }
+  81% {
+    transform: translateY(-28px);
+  }
+  95% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Usamos una clase distinta para el logo del index */
+.logo-index {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 100px;
+  z-index: 1000;
+  animation: bounce-in-top 1.8s ease forwards;
+  cursor: pointer;
+}
+
+/* Estilo para el main del index */
+main {
+  padding: 30px 20px 60px;
+  margin-top: 120px; /* espacio para el logo fijo */
+  text-align: center;
+}
+
+/* Título */
+main h1 {
+  font-size: 2.5rem;
+  color: #0a0a0a;
+  margin-bottom: 10px;
+}
+
+/* Subtítulo */
+main p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+/* Contenedor de galería */
+.carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+
+}
+
+/* Imagenes apiladas */
+.carousel-inner img {
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.carousel-inner img:hover {
+  transform: scale(1.03);
+}
+
+/* Video responsivo */
+.video iframe {
+  width: 100%;
+  max-width: 800px;
+  height: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  margin-top: 40px;
+}
+
+/* Responsive */
+@media only screen and (max-width: 768px) {
+  main h1 {
+    font-size: 2rem;
+  }
+  main p {
+    font-size: 1rem;
+  }
+  .carousel-inner img {
+    height: 300px;
+  }
+  .video iframe {
+    height: 300px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .logo-index {
+    width: 80px;
+  }
+  .carousel-inner img {
+    height: 250px;
+  }
+  .video iframe {
+    height: 250px;
+  }
+}
