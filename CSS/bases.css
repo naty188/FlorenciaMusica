@@ -1,5 +1,3 @@
-/* bases.css mínimo para navbar a la derecha, contenido y footer */
-
 @import url('https://fonts.googleapis.com/css2?family=Abel&family=Barlow+Condensed:ital,wght@0,200;1,100;1,200&family=Lobster&display=swap');
 
 * {
@@ -13,10 +11,12 @@
 body {
   background-color: rgba(245, 222, 179, 0.8);
   min-height: 100vh;
-  padding-right: 220px; /* espacio para navbar fijo a la derecha */
+  padding-right: 220px; /* espacio para navbar en escritorio */
   display: flex;
   flex-direction: column;
 }
+
+/* NAVBAR */
 
 nav.navbar {
   position: fixed;
@@ -46,7 +46,7 @@ nav.navbar a {
   border-radius: 8px;
   background-color: transparent;
   text-align: center;
-  transition: color 0.3s ease;
+  transition: background-color 0.3s ease;
   display: block;
 }
 
@@ -60,16 +60,30 @@ nav.navbar .logo-index {
   margin-bottom: 2rem;
 }
 
-/* Contenido principal */
+/* BOTÓN HAMBURGUESA */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  align-self: flex-end;
+  margin-right: 1rem;
+}
+
+/* CONTENIDO */
 main {
   flex: 1;
-  margin-right: 220px; /* espacio para navbar */
+  margin-right: 220px;
   padding: 2rem;
   min-height: 100vh;
-  padding-bottom: 60px; /* espacio para footer */
+  padding-bottom: 60px;
   color: black;
 }
 
+/* FOOTER */
 footer {
   position: fixed;
   bottom: 0;
@@ -101,9 +115,9 @@ footer .contenedor-redes-sociales {
   justify-content: center;
   align-items: center;
   gap: 8px;
-  margin-top: 15px; /* Mueve los iconos hacia abajo */
+  margin-top: 15px;
+  flex-wrap: wrap;
 }
-
 
 footer .contenedor-redes-sociales .icono-red-social {
   width: 30px;
@@ -125,64 +139,72 @@ footer .contenedor-redes-sociales a.whatsapp img.icono-red-social {
   object-fit: contain;
 }
 
-
 footer .contenedor-redes-sociales a:hover {
   opacity: 0.7;
 }
 
-/* Imágenes responsive */
+/* IMÁGENES */
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-/* Responsive - para pantallas menores */
+/* RESPONSIVE PARA MOBILE */
 @media (max-width: 768px) {
   body {
     padding-right: 0;
   }
+
   nav.navbar {
     position: fixed;
     top: 0;
     right: 0;
     width: 100%;
-    height: 60px;
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0 1rem;
+    height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
     box-shadow: 0 3px 5px rgba(0,0,0,0.2);
+    background-color: #A0522D;
   }
 
   nav.navbar .logo-index {
     width: 100px;
-    margin: 0;
-    align-self: center;
+    margin: 0 auto 1rem;
+  }
+
+  .menu-toggle {
+    display: block;
   }
 
   nav.navbar a {
     display: none;
-    margin: 0 0.5rem;
-    font-size: 1rem;
+    width: 100%;
+    text-align: left;
+    margin: 0.5rem 0;
   }
 
-  nav.navbar.active a {
-    display: inline-block;
-    background-color: #A0522D;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
+  nav.navbar.open a {
+    display: block;
   }
 
   main {
-    padding-top: 60px;
+    padding-top: 100px;
     margin-right: 0;
     min-height: calc(100vh - 60px - 50px);
   }
 
   footer {
     width: 100%;
-    right: 0;
-    height: 50px;
-    bottom: 0;
+    height: auto;
+    position: static;
+    padding: 1rem;
+    border: none;
+  }
+
+  footer .contenedor-redes-sociales .icono-red-social {
+    width: 28px;
+    height: 28px;
   }
 }

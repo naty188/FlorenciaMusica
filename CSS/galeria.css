@@ -84,7 +84,6 @@ main {
   object-position: center top;
 }
 
-
 /* -------- VIDEOS -------- */
 .img__videos {
   width: 100%;
@@ -95,21 +94,17 @@ main {
   transition: transform 0.3s ease;
 }
 
-
-
 .img__videos:hover {
   transform: scale(1.03);
 }
 
 .column_Videos {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Fuerza dos columnas */
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas en desktop */
   gap: 30px;
   justify-items: center;
   margin-top: 80px;
 }
-
-
 
 /* -------- REDES SOCIALES -------- */
 .contenedor-redes-sociales {
@@ -130,7 +125,6 @@ main {
   background-color: beige;
   border-radius: 50%;
 }
-
 
 /* -------- WHATSAPP BUTTON -------- */
 .whatsapp-button {
@@ -159,6 +153,8 @@ main {
 }
 
 /* -------- MEDIA QUERIES -------- */
+
+/* Tablet */
 @media (max-width: 1024px) {
   .grid-galeria {
     grid-template-columns: repeat(2, 1fr);
@@ -170,16 +166,58 @@ main {
   }
 }
 
-@media (max-width: 600px) {
-  .grid-galeria {
-    grid-template-columns: 1fr;
+/* Celular */
+@media (max-width: 768px) {
+
+  /* Ajustes generales para main */
+  main {
+    margin: 100px 15px 30px;
+    padding: 0 10px;
   }
 
+  /* Ajuste logo para evitar tapar */
   .logo-index {
     width: 80px;
+    top: 5px;
+    left: 5px;
+  }
+
+  /* Grilla de fotos pasa a 1 columna */
+  .grid-galeria {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  /* Fotos algo más pequeñas */
+  .img__fotos {
+    max-width: 100%;
+    height: 200px;
+  }
+
+  /* Videos a 1 columna para mobile */
+  .column_Videos {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-top: 40px;
+  }
+
+  /* Videos más pequeños */
+  .img__videos {
+    height: 180px;
+  }
+}
+
+/* Ajustes extra para móviles muy pequeños (menos de 400px) */
+@media (max-width: 400px) {
+  .img__fotos {
+    height: 150px;
   }
 
   .img__videos {
-    height: 250px;
+    height: 140px;
+  }
+
+  main {
+    margin: 80px 10px 20px;
   }
 }
