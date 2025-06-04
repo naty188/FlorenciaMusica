@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
   header.innerHTML = `
     <img class="logo-index" src="../IMG/FM_4B-removebg-preview.png" alt="Logo de Florencia Música" />
     <nav class="navbar">
-      <a href="../html/index.html">Inicio</a>
+      <a href="./index.html">Inicio</a>
       <a href="../html/galeria.html">Galería</a>
       <a href="../html/contacto.html">Contacto</a>
     </nav>

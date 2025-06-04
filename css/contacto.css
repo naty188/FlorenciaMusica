@@ -7,6 +7,13 @@
   box-sizing: border-box;
 }
 
+html, body {
+  overflow: hidden;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
 /* LOGO ANIMADO */
 .logo {
   width: 100px;

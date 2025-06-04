@@ -1,3 +1,7 @@
+
+
+
+
 const footer = document.createElement('footer');
 footer.innerHTML = `
   <p>Buenos Aires, Temperley, Argentina. @2024 Florencia Paz. Todos los derechos reservados.</p>

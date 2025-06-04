@@ -75,7 +75,7 @@ footer {
   bottom: 0;
   right: 0;
   width: 220px;
-  min-height: 80px;
+  min-height: 270px;
   background-color: rgba(160, 82, 45, 0.9);
   color: white;
   text-align: center;
@@ -101,20 +101,21 @@ footer .contenedor-redes-sociales {
   justify-content: center;
   align-items: center;
   gap: 8px;
-  margin: 0;
+  margin-top: 15px; /* Mueve los iconos hacia abajo */
 }
 
+
 footer .contenedor-redes-sociales .icono-red-social {
-  width: 25px;
-  height: 25px;
+  width: 30px;
+  height: 30px;
   object-fit: contain;
   cursor: pointer;
   transition: opacity 0.3s ease;
 }
 
 footer .contenedor-redes-sociales a.whatsapp {
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   display: inline-block;
 }
 
