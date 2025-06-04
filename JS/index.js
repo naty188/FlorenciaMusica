@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
 
-  const footer = document.querySelector('footer');
-
   const header = document.createElement('header');
   header.innerHTML = `
     <img class="logo-index" src="IMG/FM_4B-removebg-preview.png" alt="Logo de Florencia Música" />
@@ -48,11 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
   `;
 
-  if (footer) {
-    root.insertBefore(header, footer);
-    root.insertBefore(main, footer);
-  } else {
-    root.appendChild(header);
-    root.appendChild(main);
-  }
+  root.appendChild(header);
+  root.appendChild(main);
 });
