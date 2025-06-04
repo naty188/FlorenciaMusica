@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const basePath = window.location.pathname.startsWith('/HTML/') ? '../' : '';
+ const basePath = window.location.pathname.startsWith('/HTML/') ? '../' : '';
+
 
   const root = document.getElementById('root');
 
