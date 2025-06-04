@@ -262,19 +262,25 @@ footer .contenedor-redes-sociales a:hover {
     padding-right: 0;
   }
   nav.navbar {
-    position: static;
-    width: 100%;
-    height: auto;
+    position: fixed;         /* fijo para que quede visible */
+    top: 0;
+    right: 0;
+    width: 220px;
+    height: 100vh;           /* altura completa */
+    padding-top: 3.5rem;     /* espacio para botón hamburguesa */
+    box-shadow: -3px 0 5px rgba(0,0,0,0.3);
+    background-color: #A0522D;
+    display: none;           /* oculto por defecto */
     flex-direction: column;
     align-items: flex-start;
-    padding: 0;
-    box-shadow: none;
-    display: none; /* oculto por defecto */
-    background-color: #A0522D;
-    z-index: 1000;
+    overflow-y: auto;
+    z-index: 1100;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
   }
   nav.navbar.active {
     display: flex;
+    transform: translateX(0);
   }
   nav.navbar a {
     display: block;
@@ -287,7 +293,7 @@ footer .contenedor-redes-sociales a:hover {
   }
   main {
     margin: 0;
-    padding-top: 60px; /* espacio para hamburguesa */
+    padding-top: 60px; /* espacio para botón hamburguesa */
   }
   footer {
     position: static;
@@ -305,6 +311,16 @@ footer .contenedor-redes-sociales a:hover {
   }
   .hamburger {
     display: block;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1200;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #A0522D;
+    cursor: pointer;
+    padding: 1rem;
   }
 }
 
