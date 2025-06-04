@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Contacto</title>
+  <link rel="stylesheet" href="../CSS/contacto.css" />
+  <link rel="stylesheet" href="../CSS/bases.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Abel&family=Barlow+Condensed:ital,wght@0,200;1,100;1,200&family=Lobster&display=swap" rel="stylesheet" />
+
+  <!-- Toastify CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
+</head>
+<body>
+  <header>
+    <img class="logo" src="../IMG/FM_4B-removebg-preview.png" alt="Logo de Florencia Música" />
+    <nav class="navbar">
+      <a href="../index.html">Inicio</a>
+      <a href="galeria.html">Galería</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Contacto</h1>
+
+    <form
+      id="contactoForm"
+      class="formulario"
+      action="https://formsubmit.co/natytom188@gmail.com"
+      method="POST"
+      novalidate
+    >
+      <input
+        type="text"
+        name="nombre"
+        placeholder="Nombre y Apellido"
+        class="form-control"
+        required
+      />
+      <input
+        type="email"
+        name="email"
+        placeholder="E-mail"
+        class="form-control"
+        required
+      />
+      <textarea
+        name="consulta"
+        placeholder="Dejá tu consulta aquí"
+        class="form-control textarea"
+        required
+      ></textarea>
+
+      <!-- Campos ocultos para personalizar el correo -->
+      <input
+        type="hidden"
+        name="_subject"
+        value="Nueva consulta desde tu web Florencia Música"
+      />
+      <input type="hidden" name="_captcha" value="false" />
+
+      <div class="contenedor__boton" style="display: flex; align-items: center;">
+        <button type="submit" class="boton__formulario">ENVIAR</button>
+        <div class="spinner"></div>
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    <p>Buenos Aires, Temperley, Argentina. @2024 Florencia Paz. Todos los derechos reservados.</p>
+    <h2>Seguime en mis redes</h2>
+    <div class="contenedor-redes-sociales">
+      <a href="https://www.instagram.com/fm.clasesdecanto/" target="_blank">
+        <img src="../IMG/instagram-removebg-preview.png" alt="Instagram" class="icono-red-social" />
+      </a>
+      <a href="https://www.tiktok.com/@fmflorenciam" target="_blank">
+        <img src="../IMG/tiktok-removebg-preview.png" alt="TikTok" class="icono-red-social" />
+      </a>
+      <a href="https://www.facebook.com/florenciamusica" target="_blank">
+        <img src="../IMG/Facebook-Logo-removebg-preview.png" alt="Facebook" class="icono-red-social" />
+      </a>
+    </div>
+  </footer>
+
+  <!-- Toastify JS -->
+  <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+  <!-- Tu JS personalizado -->
+  <script src="../JS/contacto.js"></script>
+  <script src="JS/bases.js"></script>
+</body>
+</html>
