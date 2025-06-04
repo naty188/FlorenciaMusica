@@ -3,30 +3,41 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const root = document.getElementById('root');
 
-  // HEADER con navbar y hamburguesa
+  // Header con botón hamburguesa y navbar
   const header = document.createElement('header');
   header.innerHTML = `
-    <div class="header-content">
-      <img class="logo-index" src="${basePath}IMG/FM_4B-removebg-preview.png" alt="Logo de Florencia Música" />
-      <button class="menu-toggle" aria-label="Menú">&#9776;</button>
-    </div>
+    <button class="hamburger" aria-label="Menú">&#9776;</button>
     <nav class="navbar">
       <a href="${basePath}index.html">Inicio</a>
       <a href="${basePath}HTML/galeria.html">Galería</a>
       <a href="${basePath}HTML/contacto.html">Contacto</a>
     </nav>
   `;
+
   root.appendChild(header);
 
-  // HAMBURGUESA – Toggle en mobile
-  document.addEventListener('click', (e) => {
-    const btn = e.target.closest('.menu-toggle');
-    if (btn) {
-      document.querySelector('nav.navbar').classList.toggle('open');
+  const hamburgerBtn = header.querySelector('.hamburger');
+  const navbar = header.querySelector('.navbar');
+
+  // Mostrar/Ocultar navbar solo en móvil y esconder en desktop
+  function handleResize() {
+    if (window.innerWidth <= 768) {
+      hamburgerBtn.style.display = 'block';
+      navbar.classList.remove('active'); // Ocultar menú al cambiar tamaño
+    } else {
+      hamburgerBtn.style.display = 'none';
+      navbar.classList.remove('active'); // Mostrar menú siempre en desktop (CSS lo hace)
     }
+  }
+
+  handleResize();
+  window.addEventListener('resize', handleResize);
+
+  hamburgerBtn.addEventListener('click', () => {
+    navbar.classList.toggle('active');
   });
 
-  // FOOTER dinámico
+  // Footer dinámico
   const footer = document.createElement('footer');
   footer.innerHTML = `
     <p>Buenos Aires, Temperley, Argentina. @2024 Florencia Paz. Todos los derechos reservados.</p>
@@ -46,5 +57,6 @@ document.addEventListener('DOMContentLoaded', () => {
       </a>
     </div>
   `;
+
   root.appendChild(footer);
 });

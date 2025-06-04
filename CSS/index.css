@@ -23,7 +23,7 @@
   }
 }
 
-/* Usamos una clase distinta para el logo del index */
+/* Logo fijo en index */
 .logo-index {
   position: fixed;
   top: 10px;
@@ -34,14 +34,13 @@
   cursor: pointer;
 }
 
-/* Estilo para el main del index */
+/* Estilo para main del index */
 main {
   padding: 30px 20px 60px;
-  margin-top: 120px; /* espacio para el logo fijo */
-  margin-left: 100px;  /* mueve todo un poco a la derecha */
+  margin-top: 120px; /* espacio para logo fijo */
+  margin-left: 100px; /* mueve todo un poco a la derecha */
   text-align: center;
 }
-
 
 /* Título */
 main h1 {
@@ -62,8 +61,6 @@ main p {
   display: flex;
   flex-direction: column;
   align-items: center;
-
-
 }
 
 /* Imagenes apiladas */
@@ -92,37 +89,89 @@ main p {
   margin-top: 40px;
 }
 
+/* Botón hamburguesa (oculto en desktop) */
 .hamburger {
   display: none;
   font-size: 2rem;
   background: none;
   border: none;
   cursor: pointer;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1100;
+  color: #A0522D; /* Marrón para que contraste */
 }
 
+/* Navbar estilo desktop y default (oculto en móvil) */
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 220px;
+  height: calc(100vh - 80px);
+  background-color: #A0522D;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem;
+  z-index: 1000;
+  box-shadow: -3px 0 5px rgba(0,0,0,0.2);
+  color: white;
+  overflow-y: auto;
+}
+
+/* En móvil, navbar oculto por defecto, aparece con .active */
 @media (max-width: 768px) {
+  main {
+    margin-left: 0;
+    margin-top: 80px;
+    padding: 20px 15px 60px;
+  }
+
   .navbar {
     display: none;
     flex-direction: column;
     background-color: #fff;
-    position: absolute;
-    top: 60px;
+    position: fixed;
+    top: 50px; /* justo debajo del hamburger */
     right: 0;
     width: 200px;
     padding: 1rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    z-index: 1050;
+    color: #000;
   }
 
   .navbar.active {
     display: flex;
   }
 
+  nav.navbar a {
+    color: #000;
+    padding: 10px 15px;
+    margin: 0.5rem 0;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  nav.navbar a:hover {
+    background-color: rgba(12, 79, 95, 0.1);
+    border-color: #0c4f5f;
+    color: #0c4f5f;
+  }
+
+  /* Mostrar botón hamburguesa */
   .hamburger {
     display: block;
   }
 }
 
-
-/* Responsive */
+/* Responsive ajustes para texto e imágenes */
 @media only screen and (max-width: 768px) {
   main h1 {
     font-size: 2rem;
