@@ -61,7 +61,7 @@ nav.navbar .logo-index {
 }
 
 /* BOTÓN HAMBURGUESA */
-.menu-toggle {
+.hamburger {
   display: none;
   background: none;
   border: none;
@@ -174,7 +174,7 @@ img {
     margin: 0 auto 1rem;
   }
 
-  .menu-toggle {
+  .hamburger {
     display: block;
   }
 
@@ -185,7 +185,7 @@ img {
     margin: 0.5rem 0;
   }
 
-  nav.navbar.open a {
+  nav.navbar.active a {
     display: block;
   }
 
