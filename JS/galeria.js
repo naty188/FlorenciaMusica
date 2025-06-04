@@ -21,11 +21,12 @@ const navbar = header.querySelector('.navbar');
 
 function handleResize() {
   if (window.innerWidth <= 768) {
-    hamburgerBtn.style.display = 'block';
-    navbar.classList.remove('active'); // Oculto el menú al redimensionar
+    // En móvil el botón hamburguesa se muestra por CSS
+    // Ocultamos menú al redimensionar
+    navbar.classList.remove('active');
   } else {
-    hamburgerBtn.style.display = 'none';
-    navbar.classList.remove('active'); // Menú siempre visible en desktop (CSS)
+    // En desktop el botón hamburguesa se oculta por CSS
+    navbar.classList.remove('active'); // menú visible siempre por CSS
   }
 }
 

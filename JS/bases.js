@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Detecta la ruta base para links e imágenes
   const basePath = window.location.pathname.startsWith('/HTML/') ? '../' : '';
 
+  // Contenedor raíz donde se inyectará header y footer
   const root = document.getElementById('root');
 
-  // Header con botón hamburguesa y navbar
+  // CREAR HEADER con botón hamburguesa y navbar
   const header = document.createElement('header');
   header.innerHTML = `
     <button class="hamburger" aria-label="Menú">&#9776;</button>
@@ -13,31 +15,41 @@ document.addEventListener('DOMContentLoaded', () => {
       <a href="${basePath}HTML/contacto.html">Contacto</a>
     </nav>
   `;
-
   root.appendChild(header);
 
   const hamburgerBtn = header.querySelector('.hamburger');
   const navbar = header.querySelector('.navbar');
 
-  // Mostrar/Ocultar navbar solo en móvil y esconder en desktop
+  // Función que muestra/oculta el menú hamburguesa según el tamaño de pantalla
   function handleResize() {
     if (window.innerWidth <= 768) {
       hamburgerBtn.style.display = 'block';
-      navbar.classList.remove('active');  // oculta menú al cargar o redimensionar en móvil
+      // Oculto menú al cargar en móvil si no está activo
+      if (!navbar.classList.contains('active')) {
+        navbar.style.display = 'none';
+      }
     } else {
       hamburgerBtn.style.display = 'none';
-      navbar.classList.remove('active');  // menú siempre visible en desktop (CSS lo controla)
+      navbar.style.display = 'flex'; // visible siempre en desktop
+      navbar.classList.remove('active');
     }
   }
 
   handleResize();
   window.addEventListener('resize', handleResize);
 
+  // Evento click para toggle menú hamburguesa
   hamburgerBtn.addEventListener('click', () => {
-    navbar.classList.toggle('active');  // muestra/oculta menú móvil con la clase active
+    if (navbar.style.display === 'flex' || navbar.style.display === 'block') {
+      navbar.style.display = 'none';
+      navbar.classList.remove('active');
+    } else {
+      navbar.style.display = 'flex';
+      navbar.classList.add('active');
+    }
   });
 
-  // Footer dinámico
+  // CREAR FOOTER dinámico con redes sociales
   const footer = document.createElement('footer');
   footer.innerHTML = `
     <p>Buenos Aires, Temperley, Argentina. @2024 Florencia Paz. Todos los derechos reservados.</p>
@@ -57,6 +69,5 @@ document.addEventListener('DOMContentLoaded', () => {
       </a>
     </div>
   `;
-
   root.appendChild(footer);
 });
