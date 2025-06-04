@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
- const basePath = window.location.pathname.startsWith('/HTML/') ? '../' : '';
-
+  const basePath = window.location.pathname.startsWith('/HTML/') ? '../' : '';
 
   const root = document.getElementById('root');
 
@@ -24,10 +23,10 @@ document.addEventListener('DOMContentLoaded', () => {
   function handleResize() {
     if (window.innerWidth <= 768) {
       hamburgerBtn.style.display = 'block';
-      navbar.classList.remove('active'); // Ocultar menú al cambiar tamaño
+      navbar.classList.remove('active');  // oculta menú al cargar o redimensionar en móvil
     } else {
       hamburgerBtn.style.display = 'none';
-      navbar.classList.remove('active'); // Mostrar menú siempre en desktop (CSS lo hace)
+      navbar.classList.remove('active');  // menú siempre visible en desktop (CSS lo controla)
     }
   }
 
@@ -35,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('resize', handleResize);
 
   hamburgerBtn.addEventListener('click', () => {
-    navbar.classList.toggle('active');
+    navbar.classList.toggle('active');  // muestra/oculta menú móvil con la clase active
   });
 
   // Footer dinámico
