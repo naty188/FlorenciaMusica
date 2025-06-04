@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   header.innerHTML = `
     <div class="header-content">
       <img class="logo-index" src="${basePath}IMG/FM_4B-removebg-preview.png" alt="Logo de Florencia Música" />
-      <button class="hamburger" aria-label="Menú">&#9776;</button>
+      <button class="menu-toggle" aria-label="Menú">&#9776;</button>
     </div>
     <nav class="navbar">
       <a href="${basePath}index.html">Inicio</a>
@@ -20,9 +20,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // HAMBURGUESA – Toggle en mobile
   document.addEventListener('click', (e) => {
-    const btn = e.target.closest('.hamburger');
+    const btn = e.target.closest('.menu-toggle');
     if (btn) {
-      document.querySelector('nav.navbar').classList.toggle('active');
+      document.querySelector('nav.navbar').classList.toggle('open');
     }
   });
 
