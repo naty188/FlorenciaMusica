@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const header = document.createElement('header');
   header.innerHTML = `
     <img class="logo-index" src="IMG/FM_4B-removebg-preview.png" alt="Logo de Florencia Música" />
-     <button class="hamburger" aria-label="Menú">&#9776;</button>
+    <button class="hamburger" aria-label="Menú">&#9776;</button>
     <nav class="navbar">
       <a href="index.html">Inicio</a>
       <a href="HTML/galeria.html">Galería</a>
@@ -49,12 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   root.appendChild(header);
   root.appendChild(main);
-});
 
-
- const hamburger = document.querySelector('.hamburger');
+  // Aquí aseguramos que el DOM ya tiene los elementos para seleccionar
+  const hamburger = document.querySelector('.hamburger');
   const navbar = document.querySelector('.navbar');
 
   hamburger.addEventListener('click', () => {
     navbar.classList.toggle('active');
   });
+});
