@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Abel&family=Barlow+Condensed:ital,wght@0,200;1,100;1,200&family=Lobster&display=swap');
 
-/* RESET Y TIPOGRAFÍA GENERAL */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -12,55 +11,21 @@
 body {
   background-color: rgba(245, 222, 179, 0.8);
   min-height: 100vh;
+  padding-right: 220px; /* espacio para navbar en escritorio */
   display: flex;
   flex-direction: column;
-  padding-right: 220px; /* espacio para navbar en desktop */
 }
 
-/* HEADER y LOGO */
-.logo-index {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  width: 100px;
-  height: auto;
-  z-index: 1000;
-  animation: bounce-in-top 1.8s ease forwards;
-  cursor: pointer;
-}
+/* NAVBAR */
 
-@keyframes bounce-in-top {
-  0% {
-    transform: translateY(-500px);
-    opacity: 0;
-  }
-  38% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-  55% {
-    transform: translateY(-65px);
-  }
-  72%, 90%, 100% {
-    transform: translateY(0);
-  }
-  81% {
-    transform: translateY(-28px);
-  }
-  95% {
-    transform: translateY(-8px);
-  }
-}
-
-/* NAVBAR - lateral desktop */
 nav.navbar {
   position: fixed;
   top: 0;
   right: 0;
   width: 220px;
-  height: calc(100vh - 80px);
+  height: calc(100vh - 80px); /* menos la altura del footer */
   background-color: #A0522D;
-  display: flex; /* visible en desktop */
+  display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 2rem;
@@ -90,9 +55,14 @@ nav.navbar a:hover {
   color: #FFD700;
 }
 
-/* BOTÓN HAMBURGUESA - oculto en desktop */
+nav.navbar .logo-index {
+  width: 140px;
+  margin-bottom: 2rem;
+}
+
+/* BOTÓN HAMBURGUESA */
 .hamburger {
-  display: none;
+  display: none; /* oculto en desktop */
   background: none;
   border: none;
   font-size: 2rem;
@@ -105,73 +75,16 @@ nav.navbar a:hover {
   z-index: 1100;
 }
 
-/* CONTENIDO PRINCIPAL */
+/* CONTENIDO */
 main {
   flex: 1;
   margin-right: 220px;
   padding: 2rem;
   min-height: 100vh;
-  font-family: 'Lobster', cursive, sans-serif;
-  text-align: center;
+  padding-bottom: 60px;
   color: black;
-  max-width: 1200px;
-  margin: 120px auto 40px;
-  padding: 0 20px;
-}
+  padding-bottom: 100px;
 
-/* IMÁGENES TICKET */
-.ticket-img {
-  width: 100%;
-  max-width: 900px;
-  display: block;
-  margin: 40px auto 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-/* GRILLA GALERÍA */
-.grid-galeria {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  justify-items: center;
-  margin-bottom: 40px;
-}
-
-.img__fotos {
-  width: 100%;
-  max-width: 250px;
-  height: 250px;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
-}
-
-.img__fotos:hover {
-  transform: scale(1.03);
-}
-
-/* VIDEO GRID */
-.column_Videos {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 30px;
-  justify-items: center;
-  margin-top: 80px;
-}
-
-.img__videos {
-  width: 100%;
-  max-width: 100%;
-  aspect-ratio: 16 / 9;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-}
-
-.img__videos:hover {
-  transform: scale(1.03);
 }
 
 /* FOOTER */
@@ -234,48 +147,36 @@ footer .contenedor-redes-sociales a:hover {
   opacity: 0.7;
 }
 
-/* WHATSAPP BUTTON */
-.whatsapp-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  width: 35px;
-  height: 33px;
-  background-image: url("../IMG/whatsapp-png-wazapp-logo-whats-whatsapp-logo-whatsapp-icon-2050-removebg-preview.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  border-radius: 5px;
-  z-index: 9999;
-  cursor: pointer;
-}
-
-.whatsapp-button a {
+/* IMÁGENES */
+img {
+  max-width: 100%;
+  height: auto;
   display: block;
-  width: 100%;
-  height: 100%;
 }
 
-/* RESPONSIVE */
-
+/* RESPONSIVE PARA MOBILE */
 @media (max-width: 768px) {
   body {
     padding-right: 0;
   }
+
   nav.navbar {
     position: static;
     width: 100%;
     height: auto;
-    display: none; /* oculto por defecto en móvil */
     flex-direction: column;
     align-items: flex-start;
     padding: 0;
     box-shadow: none;
+    display: none; /* oculto por defecto */
     background-color: #A0522D;
     z-index: 1000;
   }
+
   nav.navbar.active {
-    display: flex; /* se muestra solo cuando tiene clase active */
+    display: flex;
   }
+
   nav.navbar a {
     display: block;
     width: 100%;
@@ -285,44 +186,54 @@ footer .contenedor-redes-sociales a:hover {
     padding: 12px 10px;
     font-size: 1.2rem;
   }
+
+  main {
+    margin: 0;
+    padding-top: 60px; /* espacio para hamburguesa */
+  }
+
+  footer {
+    position: static;
+    width: 100%;
+    height: auto;
+    padding: 1rem;
+    border: none;
+    box-shadow: none;
+    background-color: #f0e6d2;
+    color: #000;
+  }
+
+  footer .contenedor-redes-sociales .icono-red-social {
+    width: 28px;
+    height: 28px;
+  }
+
   .hamburger {
     display: block;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    color: #A0522D;
-    cursor: pointer;
-    padding: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  nav.navbar {
+    display: none !important;
     position: fixed;
-    top: 10px;
-    left: 10px;
-    z-index: 1100;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    background-color: #fff;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+    box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }
+
+  nav.navbar.active {
+    display: flex !important;
+  }
+
+  .hamburger {
+    display: block !important;
   }
 }
 
-/* Media queries para grilla y videos en tablet y móvil */
-@media (max-width: 1024px) {
-  .grid-galeria {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .column_Videos {
-    grid-template-columns: 1fr;
-    margin-top: 40px;
-    gap: 20px;
-  }
-  .img__videos {
-    height: 180px;
-  }
-}
-
-@media (max-width: 400px) {
-  .img__fotos {
-    height: 150px;
-  }
-  .img__videos {
-    height: 140px;
-  }
-  main {
-    margin: 80px 10px 20px;
-  }
-}

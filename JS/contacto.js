@@ -1,69 +1,65 @@
-document.getElementById('contactoForm').addEventListener('submit', function (e) {
-  e.preventDefault();
+// =======================
+// SELECCIONAR ELEMENTOS EXISTENTES
+// =======================
 
-  const nombre = this.nombre.value.trim();
-  const email = this.email.value.trim();
-  const consulta = this.consulta.value.trim();
-  const boton = this.querySelector('button[type="submit"]');
+// Usamos el <header> y <main> reales del HTML
+const header = document.querySelector('header');
+const main = document.querySelector('main');
 
-  if (!nombre || !email || !consulta) {
-    // Mostrar solo Toastify y NO alert nativo
-    Toastify({
-      text: "Por favor, complete todos los datos.",
-      duration: 3000,
-      close: true,
-      gravity: "top",
-      position: "right",
-      backgroundColor: "#0c4f5f", // azul petróleo
-      stopOnFocus: true,
-      style: {
-        borderRadius: "8px",
-        fontWeight: "600",
-        fontFamily: "'Abel', sans-serif",
-      },
-    }).showToast();
-    return; // No seguir con el submit
+// =======================
+// CREACIÓN DEL HEADER (dinámico)
+// =======================
+if (header) {
+  header.innerHTML = `
+    <img class="logo" src="../IMG/FM_4B-removebg-preview.png" alt="Logo de Florencia Música" />
+    <button class="hamburger" aria-label="Menú">&#9776;</button>
+    <nav class="navbar">
+      <a href="../index.html">Inicio</a>
+      <a href="galeria.html">Galería</a>
+      <a href="contacto.html" class="active">Contacto</a>
+    </nav>
+  `;
+
+  // Activar menú hamburguesa
+  const hamburger = header.querySelector('.hamburger');
+  const navbar = header.querySelector('.navbar');
+
+  if (hamburger && navbar) {
+    hamburger.addEventListener('click', () => {
+      navbar.classList.toggle('active');
+    });
+
+    // Cerrar el menú al hacer clic en un enlace
+    navbar.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navbar.classList.remove('active');
+      });
+    });
   }
+}
 
-  boton.disabled = true;
+// =======================
+// FORMULARIO (ya está en tu HTML, solo conectamos)
+// =======================
+const form = document.getElementById('contactoForm');
 
-  fetch(this.action, {
-    method: 'POST',
-    body: new FormData(this),
-    headers: {
-      'Accept': 'application/json'
-    }
-  })
-    .then(response => {
-      if (response.ok) {
-        Toastify({
-          text: "Su consulta ha sido recibida. ¡Gracias!",
-          duration: 4000,
-          close: true,
-          gravity: "top",
-          position: "right",
-          backgroundColor: "#0c4f5f", // azul petróleo
-          stopOnFocus: true,
-          style: {
-            borderRadius: "8px",
-            fontWeight: "600",
-            fontFamily: "'Abel', sans-serif",
-          },
-        }).showToast();
+if (form) {
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
 
-        this.reset();
-      } else {
-        throw new Error("Error en el envío");
-      }
-    })
-    .catch(() => {
+    const nombre = this.nombre.value.trim();
+    const email = this.email.value.trim();
+    const consulta = this.consulta.value.trim();
+    const boton = this.querySelector('button[type="submit"]');
+
+    if (!nombre || !email || !consulta) {
       Toastify({
-        text: "Hubo un error enviando la consulta. Intente de nuevo.",
-        duration: 4000,
+        text: "Por favor, complete todos los datos.",
+        duration: 3000,
         close: true,
         gravity: "top",
         position: "right",
-        backgroundColor: "#ff4c4c",
+        backgroundColor: "#0c4f5f",
         stopOnFocus: true,
         style: {
           borderRadius: "8px",
@@ -71,8 +67,58 @@ document.getElementById('contactoForm').addEventListener('submit', function (e) 
           fontFamily: "'Abel', sans-serif",
         },
       }).showToast();
+      return;
+    }
+
+    boton.disabled = true;
+
+    fetch(this.action, {
+      method: 'POST',
+      body: new FormData(this),
+      headers: {
+        'Accept': 'application/json'
+      }
     })
-    .finally(() => {
-      boton.disabled = false;
-    });
-});
+      .then(response => {
+        if (response.ok) {
+          Toastify({
+            text: "Su consulta ha sido recibida. ¡Gracias!",
+            duration: 4000,
+            close: true,
+            gravity: "top",
+            position: "right",
+            backgroundColor: "#0c4f5f",
+            stopOnFocus: true,
+            style: {
+              borderRadius: "8px",
+              fontWeight: "600",
+              fontFamily: "'Abel', sans-serif",
+            },
+          }).showToast();
+          this.reset();
+        } else {
+          throw new Error("Error en el envío");
+        }
+      })
+      .catch(() => {
+        Toastify({
+          text: "Hubo un error enviando la consulta. Intente de nuevo.",
+          duration: 4000,
+          close: true,
+          gravity: "top",
+          position: "right",
+          backgroundColor: "#ff4c4c",
+          stopOnFocus: true,
+          style: {
+            borderRadius: "8px",
+            fontWeight: "600",
+            fontFamily: "'Abel', sans-serif",
+          },
+        }).showToast();
+      })
+      .finally(() => {
+        boton.disabled = false;
+      });
+  });
+}
+

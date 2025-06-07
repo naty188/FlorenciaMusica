@@ -7,14 +7,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // CREAR HEADER con botón hamburguesa y navbar
   const header = document.createElement('header');
-  header.innerHTML = `
-    <button class="hamburger" aria-label="Menú">&#9776;</button>
-    <nav class="navbar">
-      <a href="${basePath}index.html">Inicio</a>
-      <a href="${basePath}HTML/galeria.html">Galería</a>
-      <a href="${basePath}HTML/contacto.html">Contacto</a>
-    </nav>
-  `;
+ header.innerHTML = `
+  <button class="hamburger" aria-label="Menú">&#9776;</button>
+  <nav class="navbar">
+    <a href="/index.html">Inicio</a>
+    <a href="/HTML/galeria.html">Galería</a>
+    <a href="/HTML/contacto.html">Contacto</a>
+  </nav>
+`;
+
   root.appendChild(header);
 
   const hamburgerBtn = header.querySelector('.hamburger');
