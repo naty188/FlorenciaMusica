@@ -1,53 +1,58 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Detecta la ruta base para links e imágenes
   const basePath = window.location.pathname.startsWith('/HTML/') ? '../' : '';
-
-  // Contenedor raíz donde se inyectará header y footer
   const root = document.getElementById('root');
 
-  // CREAR HEADER con botón hamburguesa y navbar
   const header = document.createElement('header');
- header.innerHTML = `
-  <button class="hamburger" aria-label="Menú">&#9776;</button>
-  <nav class="navbar">
-    <a href="/index.html">Inicio</a>
-    <a href="/HTML/galeria.html">Galería</a>
-    <a href="/HTML/contacto.html">Contacto</a>
-  </nav>
-`;
-
+  header.innerHTML = `
+    <button class="hamburger" aria-label="Menú">&#9776;</button>
+    <nav class="navbar">
+      <a href="/index.html">Inicio</a>
+      <a href="/HTML/galeria.html">Galería</a>
+      <a href="/HTML/contacto.html">Contacto</a>
+    </nav>
+  `;
   root.appendChild(header);
 
   const hamburgerBtn = header.querySelector('.hamburger');
   const navbar = header.querySelector('.navbar');
+  const main = document.querySelector('main');
 
-  // Función que muestra/oculta el menú hamburguesa según el tamaño de pantalla
   function handleResize() {
     if (window.innerWidth <= 768) {
       hamburgerBtn.style.display = 'block';
-      // Oculto menú al cargar en móvil si no está activo
       if (!navbar.classList.contains('active')) {
         navbar.style.display = 'none';
+        main.classList.remove('menu-open');
       }
     } else {
       hamburgerBtn.style.display = 'none';
-      navbar.style.display = 'flex'; // visible siempre en desktop
+      navbar.style.display = 'flex';
       navbar.classList.remove('active');
+      main.classList.remove('menu-open');
     }
   }
 
   handleResize();
   window.addEventListener('resize', handleResize);
 
-  // Evento click para toggle menú hamburguesa
   hamburgerBtn.addEventListener('click', () => {
-    if (navbar.style.display === 'flex' || navbar.style.display === 'block') {
-      navbar.style.display = 'none';
+    if (navbar.classList.contains('active')) {
       navbar.classList.remove('active');
+      navbar.style.display = 'none';
+      main.classList.remove('menu-open');
     } else {
-      navbar.style.display = 'flex';
       navbar.classList.add('active');
+      navbar.style.display = 'flex';
+      main.classList.add('menu-open');
     }
+  });
+
+  navbar.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navbar.classList.remove('active');
+      navbar.style.display = 'none';
+      main.classList.remove('menu-open');
+    });
   });
 
   // CREAR FOOTER dinámico con redes sociales
@@ -70,5 +75,6 @@ document.addEventListener('DOMContentLoaded', () => {
       </a>
     </div>
   `;
+
   root.appendChild(footer);
 });
