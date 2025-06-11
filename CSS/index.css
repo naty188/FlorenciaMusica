@@ -44,9 +44,14 @@ main {
 
 /* Título */
 main h1 {
-  font-size: 2.5rem;
+  font-size: 3rem;
   color: #0a0a0a;
   margin-bottom: 10px;
+  
+}
+
+main h2{
+  margin-top: 10px;
 }
 
 /* Subtítulo */
@@ -121,12 +126,45 @@ main p {
   overflow-y: auto;
 }
 
-/* En móvil, navbar oculto por defecto, aparece con .active */
-@media (max-width: 768px) {
-  main {
-    margin-left: 0;
-    margin-top: 80px;
-    padding: 100px 15px 60px; /* <- Aquí ajusté padding-top a 100px */
+body.index-page footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 220px;
+  min-height: 270px;
+  background-color: rgba(160, 82, 45, 0.9);
+  color: white;
+  text-align: center;
+  font-size: 1rem;
+  box-shadow: -3px -3px 5px rgba(0,0,0,0.2);
+  border: 2px solid yellow; /* para depurar */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  z-index: 1100;
+}
+
+body.index-page main {
+  margin-right: 220px; /* Para dejar espacio para navbar y footer */
+  padding-bottom: 270px; /* Evitar que contenido quede debajo del footer */
+}
+
+@media (min-width: 769px) {
+  body.index-page main {
+    margin-right: 280px; /* espacio para navbar */
+    padding-bottom: 280px; /* espacio para footer */
+  }
+
+  body.index-page footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 220px;
+    min-height: 270px;
+    /* tus estilos habituales para footer aquí */
   }
 
   .navbar {
@@ -171,94 +209,104 @@ main p {
   }
 }
 
-/* Responsive ajustes para texto e imágenes */
+/* --- MÓVIL: desde 768px para abajo --- */
 @media only screen and (max-width: 768px) {
-  main h1 {
-    font-size: 2rem;
+
+  
+  main {
+    margin: 0 !important;
+    padding-top: 100px !important; /* para botón hamburguesa */
+    margin-left: 0 !important;
+    text-align: center !important;
   }
-  main p {
-    font-size: 1rem;
+
+   main h1 {
+    margin-top: 65px; /* o ajustá según necesites */
   }
-  .carousel-inner img {
-    height: 300px;
+
+  .hamburger {
+  display: block !important;
+  position: fixed !important;
+  top: 10px !important;
+  right: 10px !important;
+  z-index: 1300 !important; /* Alto para que esté encima */
+  color: #A0522D !important;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+nav.navbar {
+  display: none !important;
+  position: fixed !important;
+  top: 60px !important; /* justo debajo del botón */
+  right: 10px !important;
+  width: 180px !important;
+  max-height: 120px !important; /* ajusta según cantidad de links */
+  overflow-y: auto !important;
+  background-color: #A0522D !important;
+  padding: 8px 15px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35) !important;
+  border-radius: 10px !important;
+  z-index: 1200 !important;
+  flex-direction: column !important;
+  color: white !important;
+}
+
+nav.navbar a {
+  padding: 2px 6px !important;    /* padding bien reducido */
+  margin: 0.2rem 0 !important;    /* poco espacio entre links */
+  font-size: 0.8rem !important;   /* letra más pequeña */
+  border-radius: 6px !important;
+  text-align: center !important; /* Esto centra el texto */
+  display: block !important;
+  white-space: nowrap; /* para que el texto no haga salto de línea */
+  overflow: hidden; /* opcional para evitar que se salga */
+  text-overflow: ellipsis; /* opcional para cortar con puntos suspensivos si sobra */
+}
+
+
+ nav.navbar.active {
+    display: flex !important;
   }
-  .video iframe {
-    height: 300px;
+
+/* Opcional: ajustar scrollbar para que sea más fino y discreto */
+nav.navbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+nav.navbar::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 215, 0, 0.7);
+  border-radius: 10px;
+}
+
+  nav.navbar a:hover {
+    background-color: rgba(12, 79, 95, 0.7) !important;
+    color: #FFD700 !important;
+  }
+
+  footer {
+    position: static !important;
+    width: 100% !important;
+    background-color: #f0e6d2!important;
+    color: #000 !important;
+    text-align: center !important;
+    padding: 1rem !important;
+    border: none !important;
+    box-shadow: none !important;
   }
 }
 
+/* SOLO MÓVIL PEQUEÑO max-width 480px */
 @media only screen and (max-width: 480px) {
   .logo-index {
-    width: 80px;
+    width: 80px !important;
   }
   .carousel-inner img {
-    height: 250px;
+    height: 250px !important;
   }
   .video iframe {
-    height: 250px;
-  }
-}
-
-@media (max-width: 768px) {
-  /* Mostrar el botón hamburguesa */
-  .hamburger {
-    display: block;
-    position: fixed;
-    top: 10px;
-    right: 10px;
-    z-index: 1100;
-  }
-
-  /* Navbar oculto por defecto y visible con clase .active */
-  nav.navbar {
-    display: none;
-    position: fixed;
-    top: 50px; /* justo debajo del hamburguesa */
-    right: 0;
-    width: 220px;
-    max-width: 80vw;
-    background-color: #A0522D;
-    padding: 1rem;
-    box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    border-radius: 0 0 0 10px;
-    z-index: 1050;
-    flex-direction: column;
-    color: white;
-  }
-  nav.navbar.active {
-    display: flex;
-  }
-
-  /* Links dentro del navbar */
-  nav.navbar a {
-    color: white;
-    padding: 10px 15px;
-    margin: 0.3rem 0;
-    border-radius: 6px;
-    font-weight: 600;
-    font-size: 1.1rem;
-    text-align: left;
-  }
-  nav.navbar a:hover {
-    background-color: rgba(12, 79, 95, 0.7);
-    color: #FFD700;
-  }
-
-  /* Ajustar main para que no quede debajo del navbar */
-  main {
-    margin: 0;
-    padding-top: 100px; /* espacio para botón hamburguesa fijo */
-  }
-
-  /* Footer fijo al final de la página y ancho completo */
-  footer {
-    position: static;
-    width: 100%;
-    background-color: rgba(160, 82, 45, 0.9);
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    border: none;
-    box-shadow: none;
+    height: 250px !important;
   }
 }

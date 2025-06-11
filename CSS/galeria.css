@@ -293,7 +293,7 @@ footer .contenedor-redes-sociales a:hover {
     z-index: 1200;
     box-shadow: 0 0 8px rgba(0,0,0,0.2);
 
-   width: 180px;          /* ancho más angosto */
+    width: 180px;          /* ancho más angosto */
     max-height: 105px;     /* altura máxima más chica */
     overflow-y: auto;       /* solo scroll si hay overflow */
   }

@@ -1,79 +1,104 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const basePath = window.location.pathname.startsWith('/HTML/') ? '../' : '';
   const root = document.getElementById('root');
-  const footer = document.querySelector('footer');
 
   const header = document.createElement('header');
   header.innerHTML = `
-    <img class="logo-index" src="IMG/FM_4B-removebg-preview.png" alt="Logo de Florencia Música" />
-    <button class="hamburger" aria-label="Abrir menú">&#9776;</button>
+    <button class="hamburger" aria-label="Menú">&#9776;</button>
     <nav class="navbar">
-      <a href="index.html">Inicio</a>
-      <a href="HTML/galeria.html">Galería</a>
-      <a href="HTML/contacto.html">Contacto</a>
+      <a href="/index.html">Inicio</a>
+      <a href="/HTML/galeria.html">Galería</a>
+      <a href="/HTML/contacto.html">Contacto</a>
     </nav>
   `;
+  root.appendChild(header);
 
   const main = document.createElement('main');
   main.innerHTML = `
-    <h1>Bienvenidos a Florencia Música</h1>
-    <h2>Profesora de Música y canto, estudiante de Dirección Coral, Conservatorio Julián Aguirre</h2>
-    <br>
-    <p>Descubre la pasión por el canto y la música con Florencia Paz.</p>
+    <img src="${basePath}IMG/FM_4B-removebg-preview.png" alt="Logo Florencia" class="logo-index" />
 
-    <div class="contenedor">
-      <div id="galeria" class="carousel">
-        <div class="carousel-inner">
-          <img src="IMG/florenshow2.jpg" alt="Flor en Show 2" class="img-index" />
-          <img src="IMG/florenshow4.jpg" alt="Flor en Show 4" class="img-index" />
-          <img src="IMG/florenshow1.jpg" alt="Flor en Show 1" class="img-index" />
-          <img src="IMG/Flor_coro-egreso.jpg" alt="Flor Coro" class="img-index" />
-          <img src="IMG/Flor_coro_egreso1.jpg" alt="Flor Coro 1" class="img-index" />
-          <img src="IMG/Flor_coro_egreso2.jpg" alt="Flor Coro 2" class="img-index" />
-          <img src="IMG/floren.jpg" alt="Flor" class="img-index" />
-          <img src="IMG/florenshow3.jpg" alt="Flor en Show 3" class="img-index" />
-        </div>
+    <h1>Andrea Florencia Paz</h1>
+    <h2>¡Bienvenidos a mi espacio musical!<h2>
+    <p>Descubrí mi arte y acompañame en este viaje lleno de música.</p>
+    <p>Profesora de canto, estudiante de Dirección Coral, Conservatorio Julian Aguirre.<p>
+
+    <div class="carousel">
+      <div class="carousel-inner">
+        <img src="${basePath}IMG/florenshow2.jpg" alt="Show 2" />
+        <img src="${basePath}IMG/florenshow3.jpg" alt="Show 3" />
+        <img src="${basePath}IMG/florenshow4.jpg" alt="Show 4" />
+        <img src="${basePath}IMG/floren.jpg" alt="Florencia" />
       </div>
     </div>
 
     <div class="video">
-      <iframe src="https://www.youtube.com/embed/8p3KcVdhdMI" title="Video Florencia Música" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/TEFC3qmKeDs" title="Video Florencia Música" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/RH2PEnRlRM4" title="Video Florencia Música" frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/8p3KcVdhdMI" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/RH2PEnRlRM4" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/TEFC3qmKeDs" frameborder="0" allowfullscreen></iframe>
     </div>
   `;
+  root.appendChild(main);
 
-  if (footer) {
-    root.insertBefore(header, footer);
-    root.insertBefore(main, footer);
-  } else {
-    root.appendChild(header);
-    root.appendChild(main);
-  }
-
-  // Solo agregar funcionalidad hamburguesa en pantallas móviles
-  const hamburger = header.querySelector('.hamburger');
+  const hamburgerBtn = header.querySelector('.hamburger');
   const navbar = header.querySelector('.navbar');
 
-  function checkWindowSize() {
-    if (window.innerWidth < 768) {
-      hamburger.style.display = 'block';
-
-      hamburger.addEventListener('click', () => {
-        navbar.classList.toggle('active');
-      });
+  function handleResize() {
+    if (window.innerWidth <= 768) {
+      hamburgerBtn.style.display = 'block';
+      if (!navbar.classList.contains('active')) {
+        navbar.style.display = 'none';
+        main.classList.remove('menu-open');
+      }
     } else {
-      hamburger.style.display = 'none';
+      hamburgerBtn.style.display = 'none';
+      navbar.style.display = 'flex';
       navbar.classList.remove('active');
+      main.classList.remove('menu-open');
     }
   }
 
-  // Ejecutar al cargar y al redimensionar ventana
-  checkWindowSize();
-  window.addEventListener('resize', checkWindowSize);
+  handleResize();
+  window.addEventListener('resize', handleResize);
+
+  hamburgerBtn.addEventListener('click', () => {
+    if (navbar.classList.contains('active')) {
+      navbar.classList.remove('active');
+      navbar.style.display = 'none';
+      main.classList.remove('menu-open');
+    } else {
+      navbar.classList.add('active');
+      navbar.style.display = 'flex';
+      main.classList.add('menu-open');
+    }
+  });
+
+  navbar.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      navbar.classList.remove('active');
+      navbar.style.display = 'none';
+      main.classList.remove('menu-open');
+    });
+  });
+
+  // Footer
+  const footer = document.createElement('footer');
+  footer.innerHTML = `
+    <p>Buenos Aires, Temperley, Argentina. @2024 Florencia Paz. Todos los derechos reservados.</p>
+    <h2>Seguime en mis redes</h2>
+    <div class="contenedor-redes-sociales">
+      <a href="https://www.instagram.com/fm.clasesdecanto/" target="_blank">
+        <img src="${basePath}IMG/instagram-removebg-preview.png" alt="Instagram" class="icono-red-social" />
+      </a>
+      <a href="https://www.tiktok.com/@fmflorenciam" target="_blank">
+        <img src="${basePath}IMG/tiktok-removebg-preview.png" alt="TikTok" class="icono-red-social" />
+      </a>
+      <a href="https://www.facebook.com/florenciamusica" target="_blank">
+        <img src="${basePath}IMG/Facebook-Logo-removebg-preview.png" alt="Facebook" class="icono-red-social" />
+      </a>
+      <a href="https://api.whatsapp.com/send?phone=5491131967110" target="_blank" class="whatsapp" aria-label="WhatsApp">
+        <img src="${basePath}IMG/whatsapp-png-wazapp-logo-whats-whatsapp-logo-whatsapp-icon-2050-removebg-preview.png" alt="WhatsApp" class="icono-red-social" />
+      </a>
+    </div>
+  `;
+  root.appendChild(footer);
 });
