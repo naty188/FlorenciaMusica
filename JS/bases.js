@@ -1,17 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const basePath = window.location.pathname.startsWith('/HTML/') ? '../' : '';
+  const basePath = window.location.pathname.includes('/HTML/') ? '../' : '';
+
   const root = document.getElementById('root');
 
   const header = document.createElement('header');
-  header.innerHTML = `
+header.innerHTML = `
   <button class="hamburger" aria-label="Menú">&#9776;</button>
   <nav class="navbar">
     <a href="${basePath}index.html">Inicio</a>
     <a href="${basePath}HTML/galeria.html">Galería</a>
     <a href="${basePath}HTML/contacto.html">Contacto</a>
   </nav>
-
-  `;
+`;
   root.appendChild(header);
 
   const hamburgerBtn = header.querySelector('.hamburger');
