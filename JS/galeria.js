@@ -4,7 +4,7 @@ const root = document.getElementById('root');
 // Header con logo, botón hamburguesa y navbar
 const header = document.createElement('header');
 header.innerHTML = `
-  <img class="logo-index" src="../IMG/FM_4B-removebg-preview.png" alt="Logo" />
+  <img class="logo-index" src="../IMG/FM_4B-removebg-preview .png" alt="Logo" />
 
   <button class="hamburger" aria-label="Menú">&#9776;</button>
 

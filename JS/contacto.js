@@ -7,7 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // =======================
   if (header) {
     header.innerHTML = `
-      <img class="logo" src="../IMG/FM_4B-removebg-preview.png" alt="Logo de Florencia Música" />
+      <img class="logo" src="../IMG/FM_4B-removebg-preview .png" alt="Logo de Florencia Música" />
       <button class="hamburger" aria-label="Menú">&#9776;</button>
       <nav class="navbar">
         <a href="../index.html">Inicio</a>

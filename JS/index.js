@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const main = document.createElement('main');
   main.innerHTML = `
-    <img src="${basePath}IMG/FM_4B-removebg-preview.png" alt="Logo Florencia" class="logo-index" />
+    <img src="${basePath}IMG/FM_4B-removebg-preview .png" alt="Logo Florencia" class="logo-index" />
 
     <h1>Andrea Florencia Paz</h1>
     <h2>¡Bienvenidos a mi espacio musical!<h2>
