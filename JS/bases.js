@@ -4,12 +4,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const header = document.createElement('header');
   header.innerHTML = `
-    <button class="hamburger" aria-label="Menú">&#9776;</button>
-    <nav class="navbar">
-      <a href="/index.html">Inicio</a>
-      <a href="/HTML/galeria.html">Galería</a>
-      <a href="/HTML/contacto.html">Contacto</a>
-    </nav>
+  <button class="hamburger" aria-label="Menú">&#9776;</button>
+  <nav class="navbar">
+    <a href="${basePath}index.html">Inicio</a>
+    <a href="${basePath}HTML/galeria.html">Galería</a>
+    <a href="${basePath}HTML/contacto.html">Contacto</a>
+  </nav>
+
   `;
   root.appendChild(header);
 

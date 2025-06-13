@@ -6,9 +6,10 @@ document.addEventListener('DOMContentLoaded', () => {
   header.innerHTML = `
     <button class="hamburger" aria-label="Menú">&#9776;</button>
     <nav class="navbar">
-      <a href="/index.html">Inicio</a>
-      <a href="/HTML/galeria.html">Galería</a>
-      <a href="/HTML/contacto.html">Contacto</a>
+     <a href="index.html">Inicio</a>
+     <a href="HTML/galeria.html">Galería</a>
+     <a href="HTML/contacto.html">Contacto</a>
+
     </nav>
   `;
   root.appendChild(header);
@@ -80,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /*
   // Footer
   const footer = document.createElement('footer');
   footer.innerHTML = `
@@ -101,4 +103,6 @@ document.addEventListener('DOMContentLoaded', () => {
     </div>
   `;
   root.appendChild(footer);
+  */
 });
+
