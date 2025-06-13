@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Activar menú hamburguesa
     const hamburger = header.querySelector('.hamburger');
     const navbar = header.querySelector('.navbar');
-    const main = document.querySelector('main');
+
 
     if (hamburger && navbar) {
       hamburger.addEventListener('click', () => {
