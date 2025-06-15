@@ -18,8 +18,9 @@ document.addEventListener('DOMContentLoaded', () => {
   main.innerHTML = `
     <img src="${basePath}IMG/FM_4B-removebg-preview .png" alt="Logo Florencia" class="logo-index" />
 
-    <h1>Andrea Florencia Paz</h1>
-    <h2>¡Bienvenidos a mi espacio musical!<h2>
+    <h1>FM CLASES</h1>
+    <h2>Profesora Andrea Florencia Paz<h2>
+    <h3>¡Bienvenidos a mi espacio musical!<h3>
     <p>Descubrí mi arte y acompañame en este viaje lleno de música.</p>
     <p>Profesora de canto, estudiante de Dirección Coral, Conservatorio Julian Aguirre.<p>
 
