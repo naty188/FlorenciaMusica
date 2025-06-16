@@ -1,0 +1,277 @@
+@import url("https://fonts.googleapis.com/css2?family=Abel&family=Barlow+Condensed:ital,wght@0,200;1,100;1,200&family=Lobster&display=swap");
+
+/* RESET GENERAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow: hidden;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* LOGO ANIMADO */
+.logo {
+  width: 100px;
+  margin: 10px 0 8px 10px;
+  animation: bounce-in-top 1.8s both;
+  animation-delay: 1.6s;
+}
+
+/* MAIN Y FONDO */
+main {
+  background-image: url("../IMG/fm-removebg-preview.png");
+  background-repeat: no-repeat;
+  background-size: 30%;
+  background-position: 75% center; /* Más hacia la izquierda */
+  min-height: 100vh;
+  padding: 2rem 5vw 2rem 5vw;
+  animation: kenburns-top 0.5s linear reverse both;
+  max-width: calc(100vw - 220px); /* para evitar superposición con navbar */
+}
+
+/* TITULO */
+main h1 {
+  color: #040404d8;
+  text-align: left;
+  font-size: 40px;
+  margin: 10px 0 20px 0;
+  font-family: 'Lobster', cursive;
+}
+
+/* FORMULARIO */
+.formulario {
+  display: flex;
+  width: 35vw; /* Más corto en ancho */
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.form-control {
+  width: 100%;
+  height: 38px; /* Alto cómodo */
+  padding: 8px 10px;
+  font-size: 15px;
+  border: 2px solid black;
+  border-radius: 6px;
+  background-color: white;
+}
+
+.textarea {
+  height: 90px;
+  resize: none;
+  padding: 8px 10px;
+  font-size: 15px;
+}
+
+/* BOTÓN DE ENVÍO */
+.contenedor__boton {
+  display: flex;
+  justify-content: center;
+}
+
+.boton__formulario {
+  width: 100%;
+  padding: 10px;
+  background-color: #A0522D;
+  font-size: 16px;
+  font-family: 'Abel', sans-serif;
+  border: none;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.boton__formulario:hover {
+  background-color: #8b3e1e;
+}
+
+.spinner {
+  border: 4px solid #f3f3f3; /* Light grey */
+  border-top: 4px solid #0c4f5f; /* Color azul/navy */
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+  margin-left: 15px;
+  display: none; /* oculto por defecto */
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+/* ANIMACIONES */
+@keyframes bounce-in-top {
+  0% {
+    transform: translateY(-500px);
+    opacity: 0;
+  }
+  38% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  55% {
+    transform: translateY(-65px);
+  }
+  72% {
+    transform: translateY(0);
+  }
+  81% {
+    transform: translateY(-28px);
+  }
+  90% {
+    transform: translateY(0);
+  }
+  95% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes kenburns-top {
+  0% {
+    transform: scale(1) translateY(0);
+    transform-origin: 50% 16%;
+  }
+  100% {
+    transform: scale(1.25) translateY(-15px);
+    transform-origin: top;
+  }
+}
+
+/* HAMBURGER - OCULTO POR DEFECTO EN ESCRITORIO */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #A0522D;
+  cursor: pointer;
+  padding: 1rem;
+  position: fixed;
+  top: 10px;
+  right: 15px;
+  z-index: 1100;
+}
+
+/* NAVBAR POR DEFECTO EN ESCRITORIO */
+.navbar {
+  display: flex;
+  gap: 1rem;
+}
+
+/* ======= SOLO PARA MÓVIL ======= */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block !important;
+    position: fixed;
+    top: 10px;
+    right: 15px;
+    z-index: 1600;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: #A0522D !important;
+    cursor: pointer;
+    padding: 1rem;
+  }
+
+  .navbar {
+  display: flex !important;
+  position: fixed;
+  top: 80px !important;
+  right: 20px !important ;
+  background-color: rgba(160, 82, 45, 0.95);
+  padding: 8px 10px !important;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  color: white;
+  flex-direction: column;
+  z-index: 1200;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+  align-items: center;
+  gap:0;
+  opacity: 0;
+  pointer-events: none;
+  transition: top 0.3s ease, opacity 0.3s ease;
+
+  width: 180px !important;       /* Forzamos ancho */
+  max-width: 180px !important;   /* Forzamos máximo */
+  min-width: 180px !important;   /* Forzamos mínimo */
+
+  height: auto !important;
+  max-height: none !important;
+  overflow: visible !important;
+  box-sizing: border-box;        /* Para que el padding no aumente el ancho */
+}
+
+  .navbar.active {
+    display: flex !important;
+    top: 80px !important; /* vuelve visible cuando está activo */
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+.navbar a {
+   padding: 3px 10px !important;
+    font-size: 0.8rem !important;
+    margin: 3px 5px 3px 0 !important;
+  justify-content: center !important;
+  align-items: center !important;
+  text-align: center !important;
+  width: 100%;
+  display: flex !important;
+  font-weight: 600;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  line-height: 1.2;
+  
+}
+  
+  body.menu-abierto {
+    overflow: hidden;
+  }
+
+  main {
+    max-width: 100vw !important;
+    padding: 1rem !important;
+    background-position: 75% 85%; /* mueve la imagen más abajo en móvil */
+    padding-bottom: 8rem;
+     /* para dar más espacio abajo si hace falta */
+  }
+
+  .formulario {
+    width: 90vw !important;
+  }
+
+   html, body {
+    overflow: auto !important;
+    height: auto !important;   /* para que el height no limite el contenido */
+  }
+
+    footer {
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    padding: 1rem !important;
+    border: none !important;
+    box-shadow: none !important;
+    background-color: #f0e6d2 !important;
+    color: #000 !important;
+  }
+}
+
+
+

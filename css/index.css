@@ -1,0 +1,312 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
+@keyframes bounce-in-top {
+  0% {
+    transform: translateY(-500px);
+    opacity: 0;
+  }
+  38% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  55% {
+    transform: translateY(-65px);
+  }
+  72%, 90%, 100% {
+    transform: translateY(0);
+  }
+  81% {
+    transform: translateY(-28px);
+  }
+  95% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Logo fijo en index */
+.logo-index {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  width: 100px;
+  z-index: 1000;
+  animation: bounce-in-top 1.8s ease forwards;
+  cursor: pointer;
+}
+
+/* Estilo para main del index */
+main {
+  padding: 30px 20px 60px;
+  margin-top: 120px; /* espacio para logo fijo */
+  margin-left: 100px; /* mueve todo un poco a la derecha */
+  text-align: center;
+}
+
+/* Título */
+main h1 {
+  font-size: 3rem;
+  color: #0a0a0a;
+  margin-bottom: 10px;
+  
+}
+
+main h2{
+  margin-top: 10px;
+}
+
+/* Subtítulo */
+main p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  color: #222;
+}
+
+/* Contenedor de galería */
+.carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Imagenes apiladas */
+.carousel-inner img {
+  width: 100%;
+  max-width: 600px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+  margin-bottom: 20px;
+}
+
+.carousel-inner img:hover {
+  transform: scale(1.03);
+}
+
+/* Video responsivo */
+.video iframe {
+  width: 100%;
+  max-width: 800px;
+  height: 400px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  margin-top: 40px;
+}
+
+/* Botón hamburguesa (oculto en desktop) */
+.hamburger {
+  display: none;
+  font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1100;
+  color: #A0522D; /* Marrón para que contraste */
+}
+
+/* Navbar estilo desktop y default (oculto en móvil) */
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 220px;
+  height: calc(100vh - 80px);
+  background-color: #A0522D;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2rem;
+  z-index: 1000;
+  box-shadow: -3px 0 5px rgba(0,0,0,0.2);
+  color: white;
+  overflow-y: auto;
+}
+
+body.index-page footer {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 220px;
+  min-height: 270px;
+  background-color: rgba(160, 82, 45, 0.9);
+  color: white;
+  text-align: center;
+  font-size: 1rem;
+  box-shadow: -3px -3px 5px rgba(0,0,0,0.2);
+  border: 2px solid yellow; /* para depurar */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 15px;
+  box-sizing: border-box;
+  z-index: 1100;
+}
+
+body.index-page main {
+  margin-right: 220px; /* Para dejar espacio para navbar y footer */
+  padding-bottom: 270px; /* Evitar que contenido quede debajo del footer */
+}
+
+@media (min-width: 769px) {
+  body.index-page main {
+    margin-right: 280px; /* espacio para navbar */
+    padding-bottom: 280px; /* espacio para footer */
+  }
+
+  body.index-page footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 220px;
+    min-height: 270px;
+    /* tus estilos habituales para footer aquí */
+  }
+
+  .navbar {
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    position: fixed;
+    top: 50px; /* justo debajo del hamburger */
+    right: 0;
+    width: 200px;
+    padding: 1rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    z-index: 1050;
+    color: #000;
+  }
+
+  .navbar.active {
+    display: flex;
+  }
+
+  nav.navbar a {
+    color: #000;
+    padding: 10px 15px;
+    margin: 0.5rem 0;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  nav.navbar a:hover {
+    background-color: rgba(12, 79, 95, 0.1);
+    border-color: #0c4f5f;
+    color: #0c4f5f;
+  }
+
+  /* Mostrar botón hamburguesa */
+  .hamburger {
+    display: block;
+  }
+}
+
+/* --- MÓVIL: desde 768px para abajo --- */
+@media only screen and (max-width: 768px) {
+
+  
+  main {
+    margin: 0 !important;
+    padding-top: 100px !important; /* para botón hamburguesa */
+    margin-left: 0 !important;
+    text-align: center !important;
+  }
+
+   main h1 {
+    margin-top: 65px; /* o ajustá según necesites */
+  }
+
+  .hamburger {
+  display: block !important;
+  position: fixed !important;
+  top: 10px !important;
+  right: 10px !important;
+  z-index: 1300 !important; /* Alto para que esté encima */
+  color: #A0522D !important;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+nav.navbar {
+  display: none !important;
+  position: fixed !important;
+  top: 60px !important; /* justo debajo del botón */
+  right: 10px !important;
+  width: 180px !important;
+  max-height: 120px !important; /* ajusta según cantidad de links */
+  overflow-y: auto !important;
+  background-color: #A0522D !important;
+  padding: 8px 15px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35) !important;
+  border-radius: 10px !important;
+  z-index: 1200 !important;
+  flex-direction: column !important;
+  color: white !important;
+}
+
+nav.navbar a {
+  padding: 2px 6px !important;    /* padding bien reducido */
+  margin: 0.2rem 0 !important;    /* poco espacio entre links */
+  font-size: 0.8rem !important;   /* letra más pequeña */
+  border-radius: 6px !important;
+  text-align: center !important; /* Esto centra el texto */
+  display: block !important;
+  white-space: nowrap; /* para que el texto no haga salto de línea */
+  overflow: hidden; /* opcional para evitar que se salga */
+  text-overflow: ellipsis; /* opcional para cortar con puntos suspensivos si sobra */
+}
+
+
+ nav.navbar.active {
+    display: flex !important;
+  }
+
+/* Opcional: ajustar scrollbar para que sea más fino y discreto */
+nav.navbar::-webkit-scrollbar {
+  width: 5px;
+}
+
+nav.navbar::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 215, 0, 0.7);
+  border-radius: 10px;
+}
+
+  nav.navbar a:hover {
+    background-color: rgba(12, 79, 95, 0.7) !important;
+    color: #FFD700 !important;
+  }
+
+  footer {
+    position: static !important;
+    width: 100% !important;
+    background-color: #f0e6d2!important;
+    color: #000 !important;
+    text-align: center !important;
+    padding: 1rem !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+}
+
+/* SOLO MÓVIL PEQUEÑO max-width 480px */
+@media only screen and (max-width: 480px) {
+  .logo-index {
+    width: 80px !important;
+  }
+  .carousel-inner img {
+    height: 250px !important;
+  }
+  .video iframe {
+    height: 250px !important;
+  }
+}
