@@ -6,9 +6,9 @@ document.addEventListener('DOMContentLoaded', () => {
   header.innerHTML = `
     <button class="hamburger" aria-label="Menú">&#9776;</button>
     <nav class="navbar">
-     <a href="index.html">Inicio</a>
-     <a href="HTML/galeria.html">Galería</a>
-     <a href="HTML/contacto.html">Contacto</a>
+     <a href="${basePath}index.html">Inicio</a>
+     <a href="${basePath}HTML/galeria.html">Galería</a>
+     <a href="${basePath}HTML/contacto.html">Contacto</a>
 
     </nav>
   `;
@@ -16,9 +16,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const main = document.createElement('main');
   main.innerHTML = `
-    <img src="${basePath}IMG/FM_4B-removebg-preview .png" alt="Logo Florencia" class="logo-index" />
+    <img src="${basePath}IMG/FM_4B-removebg-preview.png" alt="Logo Florencia" class="logo-index" />
 
-    <h1>FM CLASES</h1>
+    <h1>FM CLASES DE CANTO</h1>
     <h2>Profesora Andrea Florencia Paz<h2>
     <h3>¡Bienvenidos a mi espacio musical!<h3>
     <p>Descubrí mi arte y acompañame en este viaje lleno de música.</p>
