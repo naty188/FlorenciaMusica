@@ -1,44 +1,46 @@
 document.addEventListener('DOMContentLoaded', () => {
+  // Detectar si estamos en subcarpeta (html) o en la raíz
+  const basePath = window.location.pathname.includes('/html/') ? '../' : '';
   const header = document.querySelector('header');
   const main = document.querySelector('main');
 
   // =======================
-  // CREACIÓN DEL HEADER (dinámico)
+  // HEADER dinámico
   // =======================
   if (header) {
     header.innerHTML = `
-      <img class="logo" src="../IMG/FM_4B-removebg-preview .png" alt="Logo de Florencia Música" />
+      <img class="logo" src="${basePath}img/FM_4B-removebg-preview.png" alt="Logo de Florencia Música" />
       <button class="hamburger" aria-label="Menú">&#9776;</button>
       <nav class="navbar">
-        <a href="../index.html">Inicio</a>
-        <a href="galeria.html">Galería</a>
-        <a href="contacto.html" class="active">Contacto</a>
+        <a href="${basePath}index.html">Inicio</a>
+        <a href="${basePath}html/galeria.html">Galería</a>
+        <a href="${basePath}html/contacto.html" class="active">Contacto</a>
       </nav>
     `;
 
-    // Activar menú hamburguesa
+    // Menú hamburguesa
     const hamburger = header.querySelector('.hamburger');
     const navbar = header.querySelector('.navbar');
-
 
     if (hamburger && navbar) {
       hamburger.addEventListener('click', () => {
         navbar.classList.toggle('active');
         document.body.classList.toggle('menu-abierto');
-        main.classList.toggle('menu-open'); 
+        if (main) main.classList.toggle('menu-open');
       });
 
       navbar.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
           navbar.classList.remove('active');
           document.body.classList.remove('menu-abierto');
+          if (main) main.classList.remove('menu-open');
         });
       });
     }
-  } // <- ESTA LLAVE FALTABA AQUÍ
+  }
 
   // =======================
-  // FORMULARIO
+  // FORMULARIO de contacto
   // =======================
   const form = document.getElementById('contactoForm');
 
