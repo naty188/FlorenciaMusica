@@ -1,7 +1,0 @@
-[build]
-  publish = "."   # si tu index.html está en la raíz del repo
-
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200

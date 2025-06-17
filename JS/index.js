@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const basePath = window.location.pathname.startsWith('/HTML/') ? '../' : '';
+  const basePath = window.location.pathname.startsWith('/html/') ? '../' : '';
   const root = document.getElementById('root');
 
   const header = document.createElement('header');
@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     <button class="hamburger" aria-label="Menú">&#9776;</button>
     <nav class="navbar">
      <a href="${basePath}index.html">Inicio</a>
-     <a href="${basePath}HTML/galeria.html">Galería</a>
-     <a href="${basePath}HTML/contacto.html">Contacto</a>
+     <a href="${basePath}html/galeria.html">Galería</a>
+     <a href="${basePath}html/contacto.html">Contacto</a>
 
     </nav>
   `;
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const main = document.createElement('main');
   main.innerHTML = `
-    <img src="${basePath}IMG/FM_4B-removebg-preview.png" alt="Logo Florencia" class="logo-index" />
+    <img src="${basePath}img/FM_4B-removebg-preview.png" alt="Logo Florencia" class="logo-index" />
 
     <h1>FM CLASES DE CANTO</h1>
     <h2>Profesora Andrea Florencia Paz<h2>
@@ -26,10 +26,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     <div class="carousel">
       <div class="carousel-inner">
-        <img src="${basePath}IMG/florenshow2.jpg" alt="Show 2" />
-        <img src="${basePath}IMG/florenshow3.jpg" alt="Show 3" />
-        <img src="${basePath}IMG/florenshow4.jpg" alt="Show 4" />
-        <img src="${basePath}IMG/floren.jpg" alt="Florencia" />
+        <img src="${basePath}img/florenshow2.webp" alt="Show 2" />
+        <img src="${basePath}img/florenshow3.webp" alt="Show 3" />
+        <img src="${basePath}img/florenshow4.webp" alt="Show 4" />
+        <img src="${basePath}img/floren.webp" alt="Florencia" />
+        <img src="${basePath}img/Flor_coro_egreso2.webp" alt="Florencia" />
+        <img src="${basePath}img/Flor_coro-egreso.webp" alt="Florencia" />
+        <img src="${basePath}img/Flor_coro_egreso1.webp" alt="Florencia" />
       </div>
     </div>
 
@@ -82,28 +85,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /*
-  // Footer
-  const footer = document.createElement('footer');
-  footer.innerHTML = `
-    <p>Buenos Aires, Temperley, Argentina. @2024 Florencia Paz. Todos los derechos reservados.</p>
-    <h2>Seguime en mis redes</h2>
-    <div class="contenedor-redes-sociales">
-      <a href="https://www.instagram.com/fm.clasesdecanto/" target="_blank">
-        <img src="${basePath}IMG/instagram-removebg-preview.png" alt="Instagram" class="icono-red-social" />
-      </a>
-      <a href="https://www.tiktok.com/@fmflorenciam" target="_blank">
-        <img src="${basePath}IMG/tiktok-removebg-preview.png" alt="TikTok" class="icono-red-social" />
-      </a>
-      <a href="https://www.facebook.com/florenciamusica" target="_blank">
-        <img src="${basePath}IMG/Facebook-Logo-removebg-preview.png" alt="Facebook" class="icono-red-social" />
-      </a>
-      <a href="https://api.whatsapp.com/send?phone=5491131967110" target="_blank" class="whatsapp" aria-label="WhatsApp">
-        <img src="${basePath}IMG/whatsapp-png-wazapp-logo-whats-whatsapp-logo-whatsapp-icon-2050-removebg-preview.png" alt="WhatsApp" class="icono-red-social" />
-      </a>
-    </div>
-  `;
-  root.appendChild(footer);
-  */
 });
 
