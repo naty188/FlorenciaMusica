@@ -35,46 +35,44 @@
     <h1>Contacto</h1>
 
     <form
-      id="contactoForm"
-      class="formulario"
-      action="https://formsubmit.co/natytom188@gmail.com"
-      method="POST"
-      novalidate
-    >
-      <input
-        type="text"
-        name="nombre"
-        placeholder="Nombre y Apellido"
-        class="form-control"
-        required
-      />
-      <input
-        type="email"
-        name="email"
-        placeholder="E-mail"
-        class="form-control"
-        required
-      />
-      <textarea
-        name="consulta"
-        placeholder="Dejá tu consulta aquí"
-        class="form-control textarea"
-        required
-      ></textarea>
+  id="contactoForm"
+  name="contacto"
+  method="POST"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  class="formulario"
+  novalidate
+>
+  <input type="hidden" name="form-name" value="contacto" />
+  <input type="hidden" name="bot-field" />
 
-      <!-- Campos ocultos para personalizar el correo -->
-      <input
-        type="hidden"
-        name="_subject"
-        value="Nueva consulta desde tu web Florencia Música"
-      />
-      <input type="hidden" name="_captcha" value="false" />
+  <input
+    type="text"
+    name="nombre"
+    placeholder="Nombre y Apellido"
+    class="form-control"
+    required
+  />
+  <input
+    type="email"
+    name="email"
+    placeholder="E-mail"
+    class="form-control"
+    required
+  />
+  <textarea
+    name="consulta"
+    placeholder="Dejá tu consulta aquí"
+    class="form-control textarea"
+    required
+  ></textarea>
 
-      <div class="contenedor__boton" style="display: flex; align-items: center;">
-        <button type="submit" class="boton__formulario">ENVIAR</button>
-        <div class="spinner"></div>
-      </div>
-    </form>
+  <div class="contenedor__boton" style="display: flex; align-items: center;">
+    <button type="submit" class="boton__formulario">ENVIAR</button>
+    <div class="spinner"></div>
+  </div>
+</form>
+
   </main>
 
   <footer>

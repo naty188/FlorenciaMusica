@@ -73,11 +73,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
       boton.disabled = true;
 
-      fetch(this.action, {
+      // Cambié solo esta parte para que envíe a Netlify Forms correctamente:
+      fetch("/", {
         method: 'POST',
-        body: new FormData(this),
+        body: new URLSearchParams(new FormData(this)).toString(),
         headers: {
-          'Accept': 'application/json'
+          'Content-Type': 'application/x-www-form-urlencoded'
         }
       })
       .then(response => {
